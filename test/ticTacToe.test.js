@@ -10,7 +10,7 @@ describe('Tic Tac Toe Test', () => {
     it('Creates first player as X', () => {
         var Game = new ticTacToe();
 
-        expect(Game.playerOne).toEqual("X");
+        expect(Game.currentPlayer).toEqual("X");
     })
 
     it('First player can place an X', () => {

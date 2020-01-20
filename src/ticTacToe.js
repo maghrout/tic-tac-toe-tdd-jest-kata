@@ -1,14 +1,17 @@
 function Game() {
     this.board = ["","","","","","","","",""];
-    this.playerOne = Game.playerOne;
-    this.currentPlayer = "O";
+    this.currentPlayer = Game.playerOne;
 }
 
-Game.playerOne = "X"
+Game.playerOne = "X";
+Game.playerTwo = "O";
 
 Game.prototype.setMarker = function(marker, index) {
     this.board[index] = marker;
 
+    if(this.currentPlayer === Game.playerOne) {
+        this.currentPlayer = Game.playerTwo;
+    }
 }
 
 
