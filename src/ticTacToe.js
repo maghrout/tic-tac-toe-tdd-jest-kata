@@ -6,8 +6,8 @@ function Game() {
 Game.playerOne = "X";
 Game.playerTwo = "O";
 
-Game.prototype.setMarker = function(marker, index) {
-    this.board[index] = marker;
+Game.prototype.setMarker = function(index) {
+    this.board[index] = this.currentPlayer;
 
     this.currentPlayer = this.currentPlayer === Game.playerOne ? Game.playerTwo : Game.playerOne;
 }
