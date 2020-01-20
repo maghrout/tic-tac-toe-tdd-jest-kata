@@ -1,7 +1,9 @@
 function Game() {
     this.board = ["","","","","","","","",""];
-    this.playerOne = "X";
+    this.playerOne = Game.playerOne;
 }
+
+Game.playerOne = "X"
 
 Game.prototype.setMarker = function(marker, index) {
     this.board[index] = marker;
