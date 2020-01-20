@@ -31,5 +31,4 @@ Game.prototype.checkRow = function(cellOne, cellTwo, cellThree) {
     }
 }
 
-
 module.exports = Game;
