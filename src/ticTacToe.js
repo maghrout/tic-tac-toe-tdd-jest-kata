@@ -17,9 +17,16 @@ Game.prototype.playTurn = function(index) {
 }
 
 Game.prototype.checkBoardCondition = function() {
-    if(this.board[0] === this.currentPlayer && this.board[1] === this.currentPlayer && this.board[2] === this.currentPlayer) {
-        this.winner = this.currentPlayer;
-    } else if(this.board[3] === this.currentPlayer && this.board[4] === this.currentPlayer && this.board[5] === this.currentPlayer) {
+    this.checkRow(this.getCell(0), this.getCell(1), this.getCell(2));
+    this.checkRow(this.getCell(3), this.getCell(4), this.getCell(5));
+}
+
+Game.prototype.getCell = function(index) {
+    return this.board[index];
+}
+
+Game.prototype.checkRow = function(cellOne, cellTwo, cellThree) {
+    if(cellOne === this.currentPlayer && cellTwo === this.currentPlayer && cellThree === this.currentPlayer) {
         this.winner = this.currentPlayer;
     }
 }
