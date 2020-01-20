@@ -34,4 +34,12 @@ describe('Tic Tac Toe Test', () => {
 
         expect(Game.currentPlayer).toEqual("X");
     })
+
+    it('When first player plays then second player cant play on same position', () => {
+        var Game = new ticTacToe();
+        Game.setMarker(0);
+        Game.setMarker(0);
+
+        expect(Game.board[0]).toEqual("X");
+    })
 })
