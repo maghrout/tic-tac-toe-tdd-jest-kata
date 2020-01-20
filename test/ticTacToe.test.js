@@ -43,4 +43,15 @@ describe('Tic Tac Toe Test', () => {
         expect(Game.board[0]).toEqual("X");
         expect(validTurn).toEqual(false);
     })
+
+    it('Player 1 wins in a row', () => {
+        var Game = new ticTacToe();
+        Game.trySetMarker(0);
+        Game.trySetMarker(4);
+        Game.trySetMarker(1);
+        Game.trySetMarker(3);
+        Game.trySetMarker(2);
+
+        expect(Game.winner).toEqual("X");
+    })
 })
