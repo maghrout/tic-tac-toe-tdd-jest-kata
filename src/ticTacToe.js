@@ -7,35 +7,21 @@ function Game() {
 Game.playerOne = "X";
 Game.playerTwo = "O";
 
-// Game.prototype.setMarker = function(index) {
-//     if(this.board[index] === "") {
-//         this.board[index] = this.currentPlayer;
-//     } 
+Game.prototype.playTurn = function(index) {
+    if(this.board[index] === "") {
+        this.board[index] = this.currentPlayer;
+        this.checkBoardCondition();
 
-//     this.currentPlayer = this.currentPlayer === Game.playerOne ? Game.playerTwo : Game.playerOne;
-// }
-
-Game.prototype.trySetMarker = function(index) {
-    if(this.board[index] !== "") return false;
-    this.board[index] = this.currentPlayer;
-
-    this.currentPlayer = this.currentPlayer === Game.playerOne ? Game.playerTwo : Game.playerOne;
-
-    this.checkBoardCondition();
-
-    return true;
+        this.currentPlayer = this.currentPlayer === Game.playerOne ? Game.playerTwo : Game.playerOne;
+    }
 }
 
 Game.prototype.checkBoardCondition = function() {
-    for (var i = 0; i < 3; i++) {
-        if(this.board[i] === this.currentPlayer) {
-            this.winner = this.currentPlayer;
-        }
+    if(this.board[0] === this.currentPlayer && this.board[1] === this.currentPlayer && this.board[2] === this.currentPlayer) {
+        this.winner = this.currentPlayer;
+    } else if(this.board[3] === this.currentPlayer && this.board[4] === this.currentPlayer && this.board[5] === this.currentPlayer) {
+        this.winner = this.currentPlayer;
     }
-
-    // if(this.board[0] === "X" && this.board[1] === "X" && this.board[2] === "X") {
-    //     this.winner = "X";
-    // }
 }
 
 
