@@ -65,4 +65,41 @@ describe('Tic Tac Toe Test', () => {
 
         expect(Game.winner).toEqual("O");
     })
+
+    it('Player 1 wins in a column', () => {
+        var Game = new ticTacToe();
+        Game.playTurn(0);
+        Game.playTurn(1);
+        Game.playTurn(3);
+        Game.playTurn(5);
+        Game.playTurn(6);
+
+        expect(Game.winner).toEqual("X");
+    })
+
+    it('Player 1 wins in a diagonal', () => {
+        var Game = new ticTacToe();
+        Game.playTurn(0);
+        Game.playTurn(1);
+        Game.playTurn(4);
+        Game.playTurn(3);
+        Game.playTurn(8);
+
+        expect(Game.winner).toEqual("X");
+    })
+
+    it('Player 1 and Player 2 tie', () => {
+        var Game = new ticTacToe();
+        Game.playTurn(1);
+        Game.playTurn(0);
+        Game.playTurn(2);
+        Game.playTurn(4);
+        Game.playTurn(8);
+        Game.playTurn(5);
+        Game.playTurn(3);
+        Game.playTurn(6);
+        Game.playTurn(7);
+
+        expect(Game.tie).toEqual(true);
+    })
 })
