@@ -4,6 +4,10 @@ function Game() {
     this.winner = "";
 }
 
+Game.winningConditions = [
+    {cellOne: 0, cellTwo: 1, cellThree: 2},
+    {cellOne: 3, cellTwo: 4, cellThree: 5}];
+
 Game.playerOne = "X";
 Game.playerTwo = "O";
 
@@ -17,15 +21,16 @@ Game.prototype.playTurn = function(index) {
 }
 
 Game.prototype.checkBoardCondition = function() {
-    this.checkRow(this.getCell(0), this.getCell(1), this.getCell(2));
-    this.checkRow(this.getCell(3), this.getCell(4), this.getCell(5));
+    Game.winningConditions.forEach(row => {
+        this.checkCondition(this.getCell(row.cellOne), this.getCell(row.cellTwo), this.getCell(row.cellThree));
+    });
 }
 
 Game.prototype.getCell = function(index) {
     return this.board[index];
 }
 
-Game.prototype.checkRow = function(cellOne, cellTwo, cellThree) {
+Game.prototype.checkCondition = function(cellOne, cellTwo, cellThree) {
     if(cellOne === this.currentPlayer && cellTwo === this.currentPlayer && cellThree === this.currentPlayer) {
         this.winner = this.currentPlayer;
     }
