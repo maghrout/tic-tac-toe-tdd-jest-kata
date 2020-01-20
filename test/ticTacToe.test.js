@@ -12,4 +12,11 @@ describe('Tic Tac Toe Test', () => {
 
         expect(Game.playerOne).toEqual("X");
     })
+
+    it('First player can place an X', () => {
+        var Game = new ticTacToe();
+        Game.setMarker("X", 0);
+
+        expect(Game.board[0]).toEqual("X");
+    })
 })
