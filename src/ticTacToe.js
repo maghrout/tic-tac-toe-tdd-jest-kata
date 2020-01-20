@@ -27,9 +27,15 @@ Game.prototype.trySetMarker = function(index) {
 }
 
 Game.prototype.checkBoardCondition = function() {
-    if(this.board[0] === "X" && this.board[1] === "X" && this.board[2] === "X") {
-        this.winner = "X";
+    for (var i = 0; i < 3; i++) {
+        if(this.board[i] === this.currentPlayer) {
+            this.winner = this.currentPlayer;
+        }
     }
+
+    // if(this.board[0] === "X" && this.board[1] === "X" && this.board[2] === "X") {
+    //     this.winner = "X";
+    // }
 }
 
 
